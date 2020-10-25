@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">ChatQF</string>
+
+    <string name="resend"><u>Resend</u></string>
+</resources>
