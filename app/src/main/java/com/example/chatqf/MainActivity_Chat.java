@@ -28,6 +28,7 @@ public class MainActivity_Chat extends AppCompatActivity {
 
         final int arr [] = new int[]{R.drawable.ic_chat_selec,R.drawable.ic_status_selec,R.drawable.ic_calls_selec};
         final int arr2 [] = new int[]{R.drawable.ic_chat,R.drawable.ic_status,R.drawable.ic_calls};
+        final int arr3 [] = new int[]{R.drawable.ic_message,R.drawable.ic_camera,R.drawable.ic_call};
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar3);
         toolbar.setTitle("ChatQF");
@@ -51,7 +52,7 @@ public class MainActivity_Chat extends AppCompatActivity {
             public void onTabSelected(TabLayout.Tab tab) {
                 viewPager.setCurrentItem(tab.getPosition());
                 tab.setIcon(arr[tab.getPosition()]);
-                floatingActionButton.setImageDrawable(ContextCompat.getDrawable(MainActivity_Chat.this,arr2[tab.getPosition()]));
+                floatingActionButton.setImageDrawable(ContextCompat.getDrawable(MainActivity_Chat.this,arr3[tab.getPosition()]));
             }
 
             @Override
