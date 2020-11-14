@@ -3,14 +3,17 @@ package com.example.chatqf;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.alimuzaffar.lib.pin.PinEntryEditText;
 
 public class MainActivity2 extends AppCompatActivity {
+
+    Button btnVerify;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +45,15 @@ public class MainActivity2 extends AppCompatActivity {
                 }
             });
         }
+
+        btnVerify = findViewById(R.id.btnVerify);
+        btnVerify.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent outIntent = new Intent(MainActivity2.this,MainActivity_Chat.class);
+                startActivity(outIntent);
+            }
+        });
 
     }
 

@@ -3,6 +3,7 @@ package com.example.chatqf;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -12,7 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     EditText number;
     Button btnSendOtp;
     String temp;
@@ -22,22 +23,22 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar1);
-        // setSupportActionBar(toolbar);
-        // title.setText(toolbar.getTitle());
-        // toolbar.setTitle("ChatQF");
-        // setSupportActionBar(toolbar);
-        // getSupportActionBar().setDisplayShowTitleEnabled(false);
-
-        toolbar.setTitleTextColor(getResources().getColor(android.R.color.white)); // making the text ChatQF in white
+        Toolbar toolbar= findViewById(R.id.toolbar_main);
+        setSupportActionBar(toolbar);
+        toolbar.setTitleTextColor(getResources().getColor(android.R.color.white)); // making the text ChatQF and the back button in white
 
         number = findViewById(R.id.editText);
 
         btnSendOtp = findViewById(R.id.btnSendOTP);
-        btnSendOtp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        btnSendOtp.setOnClickListener(this);
+
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId())
+        {
+            case R.id.btnSendOTP:
                 if ((""+number.getText().toString()).isEmpty()){ // casting to string
                     number.setError("Enter Your number plz !!");
                     return;
@@ -52,7 +53,8 @@ public class MainActivity extends AppCompatActivity {
                 temp = number.getText().toString();
                 outIntent.putExtra(NUMBER,temp);
                 startActivity(outIntent);
-            }
-        });
+                break;
+
+        }
     }
 }
